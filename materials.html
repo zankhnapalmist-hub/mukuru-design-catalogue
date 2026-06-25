@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materials — Mukuru Design Catalogue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sand:       #f5f0ea;
+      --sand-mid:   #ede7df;
+      --sand-dark:  #d8cfc4;
+      --ink:        #2a2520;
+      --ink-mid:    #5a5248;
+      --ink-light:  #8a8078;
+      --ink-faint:  #b8afa6;
+      --opp:        #e8742a;
+      --opp-soft:   #fdf0e6;
+      --str:        #2e8fbf;
+      --str-soft:   #e6f4fb;
+      --comm:       #c0392b;
+      --comm-soft:  #fcecea;
+      --border:     rgba(90,82,72,0.13);
+      --shadow-sm:  0 1px 4px rgba(42,37,32,0.07);
+      --shadow-md:  0 4px 16px rgba(42,37,32,0.10);
+      --shadow-lg:  0 8px 40px rgba(42,37,32,0.14);
+      --radius-md:  12px;
+      --radius-lg:  18px;
+      --max-w:      1600px;
+      --pad:        clamp(1.25rem, 3vw, 2.5rem);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--sand);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    .eyebrow {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1rem;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,234,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-logo-link {
+      position: relative;
+      display: block;
+      height: 68px;
+    }
+    .nav-logo-mdc {
+      height: 68px;
+      width: auto;
+      display: block;
+    }
+    .nav-logo-hover {
+      position: absolute;
+      top: 0; left: 0;
+      opacity: 0;
+      transition: opacity 0.22s ease;
+    }
+    .nav-logo-default {
+      transition: opacity 0.22s ease;
+    }
+    .nav-logo-link:hover .nav-logo-default { opacity: 0; }
+    .nav-logo-link:hover .nav-logo-hover   { opacity: 1; }
+
+    .nav-divider {
+      width: 1px;
+      height: 28px;
+      background: var(--border);
+    }
+
+    .nav-brand-name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+      display: block;
+      line-height: 1.3;
+    }
+    .nav-brand-sub {
+      font-size: 9.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink-light);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding: 6px 12px;
+      border-radius: 20px;
+      transition: color 0.18s, background 0.18s;
+    }
+    .nav-links a:hover { color: var(--ink); background: var(--sand-mid); }
+    .nav-links a.active { color: var(--ink-mid); }
+
+    .nav-links a.nav-materials {
+      background: var(--ink);
+      color: var(--sand);
+      padding: 8px 18px;
+      font-weight: 700;
+    }
+    .nav-links a.nav-materials:hover {
+      background: #3d3530;
+      color: var(--sand);
+    }
+
+    .nav-links a.active { color: var(--ink-mid); }
+
+    .nav-links a.nav-needs,
+    .nav-links a.nav-issues {
+      background: var(--ink);
+      color: var(--sand);
+      padding: 8px 18px;
+      font-weight: 700;
+    }
+    .nav-links a.nav-needs:hover,
+    .nav-links a.nav-issues:hover {
+      background: #3d3530;
+      color: var(--sand);
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: clamp(2.5rem, 5vw, 4rem) 0 0;
+      background: var(--sand);
+    }
+
+    .page-header-inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      color: var(--ink);
+    }
+
+    .page-header p {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      max-width: 52ch;
+      margin-top: 0.6rem;
+    }
+
+    .result-count {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      white-space: nowrap;
+      align-self: flex-end;
+    }
+
+    .result-count span {
+      color: var(--ink-mid);
+    }
+
+    /* ── TABS ── */
+    .tabs-bar {
+      border-bottom: 1px solid var(--border);
+      background: var(--sand);
+    }
+
+    .tabs-inner {
+      display: flex;
+      gap: 0;
+      align-items: flex-end;
+    }
+
+    .tab-btn {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      background: none;
+      border: none;
+      border-bottom: 2.5px solid transparent;
+      padding: 1rem 1.4rem 0.85rem;
+      cursor: pointer;
+      transition: color 0.18s, border-color 0.18s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: var(--ink-mid);
+    }
+
+    .tab-btn.active {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      padding: 1.5rem 0;
+      background: var(--sand-mid);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 70px;
+      z-index: 90;
+    }
+
+    .filter-bar-inner {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .search-wrap {
+      flex: 1;
+      min-width: 220px;
+      position: relative;
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-faint);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 14px 10px 40px;
+      border: 1.5px solid var(--border);
+      border-radius: 30px;
+      background: var(--sand);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+
+    .search-input::placeholder { color: var(--ink-faint); }
+    .search-input:focus {
+      border-color: var(--ink-mid);
+      box-shadow: 0 0 0 3px rgba(90,82,72,0.08);
+    }
+
+    .filter-select {
+      padding: 10px 36px 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 30px;
+      background: var(--sand);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--ink-mid);
+      appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8078' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      transition: border-color 0.18s;
+    }
+
+    .filter-select:focus,
+    .filter-select:hover {
+      border-color: var(--ink-mid);
+    }
+
+    .sort-btn {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      background: var(--sand);
+      border: 1.5px solid var(--border);
+      border-radius: 30px;
+      padding: 10px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: border-color 0.18s, background 0.18s;
+      white-space: nowrap;
+    }
+
+    .sort-btn:hover {
+      border-color: var(--ink-mid);
+      background: var(--sand-mid);
+    }
+
+    .sort-btn svg {
+      transition: transform 0.22s;
+    }
+
+    .sort-btn.desc svg {
+      transform: scaleY(-1);
+    }
+
+    .filter-reset {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 4px;
+      transition: color 0.18s;
+      white-space: nowrap;
+    }
+
+    .filter-reset:hover { color: var(--ink-mid); }
+
+    /* ── MATERIAL GRID SECTION ── */
+    .materials-section {
+      padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(3rem, 6vw, 5rem);
+    }
+
+    /* 7 columns on large desktop */
+    .mat-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 1599px) {
+      .mat-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+    @media (max-width: 1299px) {
+      .mat-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+    @media (max-width: 1099px) {
+      .mat-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 799px) {
+      .mat-grid { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    }
+    @media (max-width: 549px) {
+      .mat-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    }
+
+    /* ── MATERIAL CARD ── */
+    .mat-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--sand);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+      cursor: pointer;
+      position: relative;
+      animation: fadeUp 0.28s ease both;
+    }
+
+    .mat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(90,82,72,0.28);
+    }
+
+    .mat-card.selected {
+      border-color: var(--ink);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .mat-card-img-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--sand-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .mat-card-img {
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .mat-card-body {
+      padding: 0.7rem 0.85rem 0.85rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .mat-card-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .mat-card-cat {
+      font-size: 0.57rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .mat-card-desc {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      line-height: 1.5;
+      margin-top: 0.15rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ── EXPANDED PANEL ── */
+    .expansion-panel {
+      background: var(--sand-mid);
+      border-top: 1.5px solid var(--border);
+      border-bottom: 1.5px solid var(--border);
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease;
+    }
+
+    .expansion-panel.open {
+      max-height: 2000px;
+    }
+
+    .expansion-inner {
+      padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+    }
+
+    .expansion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .expansion-title {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .expansion-subtitle {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      margin-top: 0.2rem;
+    }
+
+    .expansion-close {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 7px 16px;
+      cursor: pointer;
+      transition: color 0.18s, border-color 0.18s, background 0.18s;
+      white-space: nowrap;
+    }
+
+    .expansion-close:hover {
+      color: var(--ink);
+      border-color: var(--ink-mid);
+      background: var(--sand);
+    }
+
+    /* Intervention cards inside expansion — reuse exact inventory card styles */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 1599px) {
+      .card-grid { grid-template-columns: repeat(5, 1fr); }
+    }
+    @media (max-width: 1199px) {
+      .card-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    }
+    @media (max-width: 699px) {
+      .card-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    }
+    @media (max-width: 479px) {
+      .card-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: var(--sand);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(90,82,72,0.28);
+    }
+
+    .card-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      background: var(--sand-mid);
+    }
+
+    .card-body {
+      padding: 0.9rem 1rem 1.1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .card-scale {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .card-id {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--ink-faint);
+    }
+
+    .card-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .card-needs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: auto;
+    }
+
+    .need-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 0.57rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .need-pill-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .need--safety    { background: #f0edf9; color: #6b52ae; }
+    .need--safety    .need-pill-dot { background: #6b52ae; }
+    .need--flood     { background: var(--str-soft); color: var(--str); }
+    .need--flood     .need-pill-dot { background: var(--str); }
+    .need--water     { background: #e6f4fb; color: #1a7fa8; }
+    .need--water     .need-pill-dot { background: #1a7fa8; }
+    .need--waste     { background: #e9f5ec; color: #3a8a50; }
+    .need--waste     .need-pill-dot { background: #3a8a50; }
+    .need--heat      { background: var(--opp-soft); color: var(--opp); }
+    .need--heat      .need-pill-dot { background: var(--opp); }
+    .need--infra     { background: var(--sand-mid); color: var(--ink-mid); }
+    .need--infra     .need-pill-dot { background: var(--ink-mid); }
+
+    .card-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    .keyword-tag {
+      font-size: 0.57rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      background: var(--sand-mid);
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+
+    .card-materials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    .mat-chip {
+      font-size: 0.57rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 6px;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .mat-chip:hover {
+      background: var(--sand-dark);
+      border-color: var(--ink-faint);
+      color: var(--ink);
+    }
+
+    .card-arrow {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+
+    .card:hover .card-arrow {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .card-arrow svg {
+      color: var(--sand);
+    }
+
+    /* ── MAP TAB ── */
+    .map-section {
+      padding: clamp(2rem, 4vw, 3rem) 0 clamp(3rem, 6vw, 5rem);
+    }
+
+    .map-frame-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 82vh;
+      min-height: 520px;
+      border: none;
+      display: block;
+    }
+
+    /* ── EMPTY / LOADING STATES ── */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 5rem 2rem;
+      color: var(--ink-faint);
+    }
+
+    .empty-state h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink-mid);
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-state p {
+      font-size: 0.875rem;
+      font-weight: 300;
+    }
+
+    .loading-state {
+      grid-column: 1 / -1;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--ink-faint);
+      font-size: 0.875rem;
+      font-weight: 300;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 2rem 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: rgba(245,240,234,0.45);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tab panel visibility */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Scrolled-to highlight */
+    .mat-card.highlight-flash {
+      animation: highlightFlash 0.6s ease forwards;
+    }
+
+    @keyframes highlightFlash {
+      0%   { box-shadow: 0 0 0 3px rgba(42,37,32,0.35); }
+      100% { box-shadow: var(--shadow-sm); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo-link">
+          <img src="assets/logos/png 0.png"
+               alt="Mukuru Design Catalogue"
+               class="nav-logo-mdc nav-logo-default"
+               onerror="this.style.display='none'" />
+          <img src="assets/logos/png2.png"
+               alt=""
+               class="nav-logo-mdc nav-logo-hover"
+               onerror="this.style.display='none'" />
+        </a>
+        <div class="nav-divider"></div>
+        <div>
+          <span class="nav-brand-name">Mukuru Design Catalogue</span>
+          <span class="nav-brand-sub">Intervention Library</span>
+        </div>
+      </div>
+      <nav class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="inventory.html">Inventory</a></li>
+          <li><a href="materials.html" class="nav-materials active">Materials</a></li>
+          <li><a href="needs.html">Needs</a></li>
+          <li><a href="issues.html">Issues</a></li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container">
+      <div class="page-header-inner">
+        <div>
+          <span class="eyebrow">Material Library</span>
+          <h1>Material Inventory</h1>
+          <p>Browse all materials used throughout the Mukuru Design Catalogue. Explore where each material is used and discover the interventions that incorporate it.</p>
+        </div>
+        <div class="result-count" id="result-count">
+          Showing <span id="count-num">101</span> of 101
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs-bar">
+      <div class="container">
+        <div class="tabs-inner">
+          <button class="tab-btn active" data-tab="inventory">Material Inventory</button>
+          <button class="tab-btn" data-tab="sources">Material Sources</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TAB: INVENTORY -->
+  <div class="tab-panel active" id="tab-inventory">
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <div class="container">
+        <div class="filter-bar-inner">
+          <div class="search-wrap">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10.5 10.5l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <input
+              type="text"
+              class="search-input"
+              id="search-input"
+              placeholder="Search materials by name, category or description…"
+              autocomplete="off"
+            />
+          </div>
+          <select class="filter-select" id="cat-filter">
+            <option value="">All Categories</option>
+          </select>
+          <button class="sort-btn" id="sort-btn" title="Toggle sort order">
+            <svg width="12" height="14" viewBox="0 0 12 14" fill="none">
+              <path d="M1 3h10M3 7h6M5 11h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            A–Z
+          </button>
+          <button class="filter-reset" id="filter-reset">Clear filters</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPANSION PANEL (interventions for selected material) -->
+    <div class="expansion-panel" id="expansion-panel">
+      <div class="container">
+        <div class="expansion-inner">
+          <div class="expansion-header">
+            <div>
+              <div class="expansion-title" id="expansion-title">Interventions using this material</div>
+              <div class="expansion-subtitle" id="expansion-subtitle"></div>
+            </div>
+            <button class="expansion-close" id="expansion-close">
+              Close ✕
+            </button>
+          </div>
+          <div class="card-grid" id="expansion-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MATERIAL GRID -->
+    <section class="materials-section">
+      <div class="container">
+        <div class="mat-grid" id="mat-grid">
+          <div class="loading-state">Loading materials…</div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /tab-inventory -->
+
+  <!-- TAB: SOURCES MAP -->
+  <div class="tab-panel" id="tab-sources">
+    <section class="map-section">
+      <div class="container">
+        <div class="map-frame-wrap">
+          <iframe
+            id="map-frame"
+            class="map-frame"
+            src=""
+            title="Material Sources Map"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </div><!-- /tab-sources -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">Mukuru Design Catalogue &mdash; Urban Futures Studio</p>
+        <p class="footer-copy">All 101 materials &copy; Mukuru</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Need display config ──
+    const NEED_CONFIG = {
+      'HEAT MITIGATION':          { label: 'Heat Mitigation',          cls: 'need--heat' },
+      'WASTE MANAGEMENT':         { label: 'Waste Management',         cls: 'need--waste' },
+      'WATER MANAGEMENT':         { label: 'Water Management',         cls: 'need--water' },
+      'FLOOD ADAPTATION':         { label: 'Flood Adaptation',         cls: 'need--flood' },
+      'IMPROVE PERCEIVED SAFETY': { label: 'Improve Perceived Safety', cls: 'need--safety' },
+      'IMPROVING INFRASTRUCTURE': { label: 'Improving Infrastructure', cls: 'need--infra' },
+    };
+
+    function toArray(val) {
+      if (!val) return [];
+      if (Array.isArray(val)) return val.map(String);
+      return String(val).split(',').map(s => s.trim()).filter(Boolean);
+    }
+
+    function normaliseNeeds(raw) {
+      if (!raw) return [];
+      if (Array.isArray(raw)) return raw.map(n => n.trim().toUpperCase()).filter(n => n.length > 2);
+      return [String(raw).trim().toUpperCase()].filter(n => n.length > 2);
+    }
+
+    function normaliseScale(s) {
+      return (s || '').trim().toLowerCase();
+    }
+
+    function cleanKeywords(kws) {
+      if (!Array.isArray(kws)) return [];
+      const out = [];
+      kws.forEach(kw => {
+        kw.split(/[\n\r]+/).forEach(part => {
+          const t = part.trim();
+          if (t.startsWith('#')) out.push(t);
+        });
+      });
+      return out.slice(0, 6);
+    }
+
+    function needPill(needKey) {
+      const cfg = NEED_CONFIG[needKey];
+      if (!cfg) return '';
+      return `<span class="need-pill ${cfg.cls}"><span class="need-pill-dot"></span>${cfg.label}</span>`;
+    }
+
+    function scaleLabel(scale) {
+      const labels = { street: 'Street', neighbourhood: 'Neighbourhood', settlement: 'Settlement' };
+      return labels[scale] || scale;
+    }
+
+    // Build intervention card — identical to inventory.html
+    function buildInterventionCard(item) {
+      const needs  = normaliseNeeds(item.needs);
+      const scale  = normaliseScale(item.scale);
+      const mats   = toArray(item['materials ']);
+      const kws    = cleanKeywords(item.keywords || []);
+      const href   = `interventions/${item.file_name}`;
+      const thumb  = `assets/intervention-images/${item.thumbnail}`;
+      const idStr  = String(item.id).padStart(2, '0');
+
+      const needsHtml = needs.map(n => needPill(n)).join('');
+      const kwHtml = kws.length
+        ? `<div class="card-keywords">${kws.map(k => `<span class="keyword-tag">${k}</span>`).join('')}</div>`
+        : '';
+      const matHtml = mats.length
+        ? `<div class="card-materials">${mats.map(m => {
+            const safe = m.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+            return `<button class="mat-chip" onclick="event.preventDefault();event.stopPropagation();" title="${safe}">${m}</button>`;
+          }).join('')}</div>`
+        : '';
+
+      return `
+        <a class="card" href="${href}">
+          <img
+            class="card-thumb"
+            src="${thumb}"
+            alt="${item.intervention}"
+            loading="lazy"
+            onerror="this.style.background='var(--sand-dark)';this.removeAttribute('src')"
+          />
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-id">${idStr}</span>
+              <span class="card-scale">${scaleLabel(scale)}</span>
+            </div>
+            <h2 class="card-title">${item.intervention}</h2>
+            ${needsHtml ? `<div class="card-needs">${needsHtml}</div>` : ''}
+            ${matHtml}
+            ${kwHtml}
+          </div>
+          <div class="card-arrow">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 9.5l7-7M3.5 2.5H9.5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>
+      `;
+    }
+
+    // Normalise a material name for fuzzy matching (handle unicode hyphens, case, spaces)
+    function normaliseMaterialName(name) {
+      return String(name)
+        .toLowerCase()
+        .replace(/[\u2010-\u2015\u2212]/g, '-') // unicode hyphens → ASCII
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    // Build lookup: normalised material name → list of interventions
+    function buildMatLookup(masterData) {
+      const lookup = {};
+      masterData.forEach(item => {
+        const mats = toArray(item['materials ']);
+        mats.forEach(m => {
+          const key = normaliseMaterialName(m);
+          if (!lookup[key]) lookup[key] = [];
+          lookup[key].push(item);
+        });
+      });
+      return lookup;
+    }
+
+    // ── State ──
+    let allMaterials  = [];
+    let masterData    = [];
+    let matLookup     = {};
+    let searchVal     = '';
+    let catVal        = '';
+    let sortAsc       = true;
+    let selectedMat   = null;
+
+    function filterAndRender() {
+      const q = searchVal.trim().toLowerCase();
+      const c = catVal.toLowerCase();
+
+      let filtered = allMaterials.filter(m => {
+        if (c && m.category.toLowerCase() !== c) return false;
+        if (q) {
+          const corpus = `${m.material_name} ${m.category} ${m.description}`.toLowerCase();
+          if (!corpus.includes(q)) return false;
+        }
+        return true;
+      });
+
+      // Sort
+      filtered.sort((a, b) => {
+        const cmp = a.material_name.localeCompare(b.material_name);
+        return sortAsc ? cmp : -cmp;
+      });
+
+      const grid    = document.getElementById('mat-grid');
+      const countEl = document.getElementById('count-num');
+
+      countEl.textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <h3>No materials found</h3>
+            <p>Try adjusting your search or clearing the filters.</p>
+          </div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map((m, i) => buildMatCard(m, i)).join('');
+
+      // Reattach click listeners
+      grid.querySelectorAll('.mat-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const name = card.dataset.name;
+          selectMaterial(name);
+        });
+      });
+    }
+
+    function buildMatCard(m, index) {
+      const img = `assets/materials/${m.image_name}`;
+      const isSelected = selectedMat === m.material_name;
+      return `
+        <div class="mat-card${isSelected ? ' selected' : ''}"
+             data-name="${m.material_name.replace(/"/g, '&quot;')}"
+             style="animation-delay:${Math.min(index * 0.018, 0.4)}s">
+          <div class="mat-card-img-wrap">
+            <img
+              class="mat-card-img"
+              src="${img}"
+              alt="${m.material_name}"
+              loading="lazy"
+              onerror="this.style.opacity='0'"
+            />
+          </div>
+          <div class="mat-card-body">
+            <div class="mat-card-name">${m.material_name}</div>
+            <div class="mat-card-cat">${m.category}</div>
+            <div class="mat-card-desc">${m.description}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function selectMaterial(name) {
+      const panel    = document.getElementById('expansion-panel');
+      const grid     = document.getElementById('expansion-grid');
+      const title    = document.getElementById('expansion-title');
+      const subtitle = document.getElementById('expansion-subtitle');
+
+      // Toggle off if same material clicked again
+      if (selectedMat === name && panel.classList.contains('open')) {
+        closeExpansion();
+        return;
+      }
+
+      selectedMat = name;
+      filterAndRender(); // re-render to update selected highlight
+
+      const key           = normaliseMaterialName(name);
+      const interventions = matLookup[key] || [];
+
+      title.textContent    = `Interventions using: ${name}`;
+      subtitle.textContent = interventions.length === 0
+        ? 'No interventions reference this material directly.'
+        : `${interventions.length} intervention${interventions.length === 1 ? '' : 's'} found`;
+
+      if (interventions.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <h3>No interventions found</h3>
+            <p>This material is not directly referenced in master.json.</p>
+          </div>`;
+      } else {
+        grid.innerHTML = interventions.map(buildInterventionCard).join('');
+      }
+
+      panel.classList.add('open');
+
+      // Scroll to panel smoothly
+      requestAnimationFrame(() => {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    }
+
+    function closeExpansion() {
+      selectedMat = null;
+      const panel = document.getElementById('expansion-panel');
+      panel.classList.remove('open');
+      filterAndRender();
+    }
+
+    // ── Populate category dropdown ──
+    function populateCatFilter() {
+      const cats = [...new Set(allMaterials.map(m => m.category))].sort();
+      const sel  = document.getElementById('cat-filter');
+      cats.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        sel.appendChild(opt);
+      });
+    }
+
+    // ── Tab switching ──
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
+
+        // Lazy-load map iframe only when tab is first opened
+        if (btn.dataset.tab === 'sources') {
+          const iframe = document.getElementById('map-frame');
+          if (!iframe.src || iframe.src === window.location.href) {
+            iframe.src = 'maps/materials_map.html';
+          }
+        }
+
+        // Hide result count for non-inventory tab
+        const rc = document.getElementById('result-count');
+        rc.style.visibility = btn.dataset.tab === 'inventory' ? 'visible' : 'hidden';
+      });
+    });
+
+    // ── Close expansion button ──
+    document.getElementById('expansion-close').addEventListener('click', closeExpansion);
+
+    // ── Sort toggle ──
+    const sortBtn = document.getElementById('sort-btn');
+    sortBtn.addEventListener('click', () => {
+      sortAsc = !sortAsc;
+      sortBtn.textContent = '';
+      // rebuild button content
+      const svg = `<svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M1 3h10M3 7h6M5 11h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`;
+      sortBtn.innerHTML = svg + (sortAsc ? ' A–Z' : ' Z–A');
+      if (!sortAsc) sortBtn.classList.add('desc');
+      else sortBtn.classList.remove('desc');
+      filterAndRender();
+    });
+
+    // ── Load data ──
+    Promise.all([
+      fetch('data/materials.json').then(r => r.json()),
+      fetch('data/master.json').then(r => r.json()),
+    ])
+    .then(([materials, master]) => {
+      allMaterials = materials;
+      masterData   = master;
+      matLookup    = buildMatLookup(master);
+
+      populateCatFilter();
+      filterAndRender();
+
+      const searchInput = document.getElementById('search-input');
+      const catFilter   = document.getElementById('cat-filter');
+      const resetBtn    = document.getElementById('filter-reset');
+
+      searchInput.addEventListener('input', () => {
+        searchVal = searchInput.value;
+        filterAndRender();
+      });
+
+      catFilter.addEventListener('change', () => {
+        catVal = catFilter.value;
+        filterAndRender();
+      });
+
+      resetBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        catFilter.value   = '';
+        searchVal = '';
+        catVal    = '';
+        filterAndRender();
+      });
+    })
+    .catch(err => {
+      document.getElementById('mat-grid').innerHTML = `
+        <div class="empty-state">
+          <h3>Could not load materials</h3>
+          <p>Please check that data/materials.json and data/master.json are accessible.</p>
+        </div>`;
+      console.error('Failed to load data', err);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Needs — Mukuru Design Catalogue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sand:       #f5f0ea;
+      --sand-mid:   #ede7df;
+      --sand-dark:  #d8cfc4;
+      --ink:        #2a2520;
+      --ink-mid:    #5a5248;
+      --ink-light:  #8a8078;
+      --ink-faint:  #b8afa6;
+      --opp:        #e8742a;
+      --opp-soft:   #fdf0e6;
+      --str:        #2e8fbf;
+      --str-soft:   #e6f4fb;
+      --comm:       #c0392b;
+      --comm-soft:  #fcecea;
+      --border:     rgba(90,82,72,0.13);
+      --shadow-sm:  0 1px 4px rgba(42,37,32,0.07);
+      --shadow-md:  0 4px 16px rgba(42,37,32,0.10);
+      --shadow-lg:  0 8px 40px rgba(42,37,32,0.14);
+      --radius-md:  12px;
+      --radius-lg:  18px;
+      --max-w:      1600px;
+      --pad:        clamp(1.25rem, 3vw, 2.5rem);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--sand);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    .eyebrow {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1rem;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,234,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left { display: flex; align-items: center; gap: 16px; }
+
+    .nav-logo-link { position: relative; display: block; height: 68px; }
+    .nav-logo-mdc  { height: 68px; width: auto; display: block; }
+    .nav-logo-hover  { position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.22s ease; }
+    .nav-logo-default { transition: opacity 0.22s ease; }
+    .nav-logo-link:hover .nav-logo-default { opacity: 0; }
+    .nav-logo-link:hover .nav-logo-hover   { opacity: 1; }
+
+    .nav-divider { width: 1px; height: 28px; background: var(--border); }
+
+    .nav-brand-name {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.03em;
+      color: var(--ink); display: block; line-height: 1.3;
+    }
+    .nav-brand-sub {
+      font-size: 9.5px; font-style: italic; font-weight: 300;
+      color: var(--ink-light); letter-spacing: 0.05em;
+    }
+
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-links  { display: flex; align-items: center; gap: 6px; list-style: none; }
+
+    .nav-links a {
+      text-decoration: none; font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light);
+      padding: 6px 12px; border-radius: 20px;
+      transition: color 0.18s, background 0.18s;
+    }
+    .nav-links a:hover { color: var(--ink); background: var(--sand-mid); }
+
+    .nav-links a.nav-needs {
+      background: var(--ink); color: var(--sand);
+      padding: 8px 18px; font-weight: 700;
+    }
+    .nav-links a.nav-needs:hover { background: #3d3530; color: var(--sand); }
+
+    .nav-links a.active { color: var(--ink-mid); }
+
+    .nav-links a.nav-issues {
+      background: var(--ink);
+      color: var(--sand);
+      padding: 8px 18px;
+      font-weight: 700;
+    }
+    .nav-links a.nav-issues:hover { background: #3d3530; color: var(--sand); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+      border-bottom: 1px solid var(--border);
+      background: var(--sand);
+    }
+
+    .page-header-inner {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1.0; color: var(--ink);
+    }
+
+    .page-header p {
+      font-size: 0.9375rem; font-weight: 300; color: var(--ink-mid);
+      line-height: 1.7; max-width: 52ch; margin-top: 0.6rem;
+    }
+
+    /* ── NEED CARDS SECTION ── */
+    .needs-section {
+      padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(2rem, 4vw, 3.5rem);
+      border-bottom: 1px solid var(--border);
+      background: var(--sand);
+    }
+
+    .needs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    @media (max-width: 899px)  { .needs-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 499px)  { .needs-grid { grid-template-columns: 1fr; gap: 0.85rem; } }
+
+    /* ── NEED CARD ── */
+    /* ── NEED CARD — icon only, no box, no title ── */
+    .need-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      padding: 1.25rem;
+      background: transparent;
+      border: 2px solid transparent;
+      border-radius: var(--radius-lg);
+      box-shadow: none;
+      cursor: pointer;
+      overflow: visible;
+      user-select: none;
+      animation: fadeUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+      transition:
+        transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.25s ease,
+        background-color 0.25s ease;
+    }
+
+    .need-card::before { display: none; }
+
+    .need-card:hover {
+      transform: translateY(-7px) scale(1.04);
+      background: rgba(255,255,255,0.5);
+      border-color: rgba(90,82,72,0.15);
+    }
+
+    .need-card.active {
+      transform: translateY(-4px) scale(1.02);
+      background: rgba(255,255,255,0.65);
+      border-color: var(--nc-accent, var(--ink-mid));
+    }
+
+    /* Icon fills the card */
+    .need-card-icon-wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .need-card-icon {
+      width: 100%;
+      height: auto;
+      max-height: 260px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .need-card:hover .need-card-icon {
+      transform: scale(1.07) translateY(-5px);
+    }
+
+    /* Hide title and subtitle entirely */
+    .need-card-text    { display: none; }
+    .need-card-title   { display: none; }
+    .need-card-subtitle{ display: none; }
+
+    /* Count badge — bottom right, appears on hover/active */
+    .need-card-count {
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem;
+      z-index: 2;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--nc-accent-text, var(--ink-mid));
+      background: rgba(245,240,234,0.92);
+      border: 1px solid var(--nc-accent-border, var(--border));
+      border-radius: 20px;
+      padding: 3px 10px;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      white-space: nowrap;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+    }
+
+    .need-card:hover .need-card-count,
+    .need-card:focus  .need-card-count,
+    .need-card.active .need-card-count {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Checkmark — top left, appears when active */
+    .need-card-check {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      z-index: 2;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--nc-accent, var(--ink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.5) rotate(-30deg);
+      transition: opacity 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .need-card.active .need-card-check {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    .need-card-check svg { color: #fff; }
+
+    /* ── STATUS BAR ── */
+    .status-bar {
+      padding: 1.1rem 0;
+      background: var(--sand-mid);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s ease;
+    }
+
+    .status-bar-inner {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .status-text {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--ink-light);
+      font-style: italic;
+    }
+
+    .status-text strong {
+      font-weight: 600;
+      font-style: normal;
+      color: var(--ink-mid);
+    }
+
+    .status-chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      flex: 1;
+    }
+
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      border-radius: 20px;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      animation: chipIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      transition: filter 0.15s, transform 0.15s, opacity 0.15s;
+    }
+
+    @keyframes chipIn {
+      from { opacity: 0; transform: scale(0.8) translateY(4px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .status-chip:hover { filter: brightness(0.92); transform: scale(0.97); }
+    .status-chip:active { transform: scale(0.94); }
+
+    .status-chip[data-key="IMPROVE PERCEIVED SAFETY"] { background: #f0edf9; color: #6b52ae; border-color: #c5b8e8; }
+    .status-chip[data-key="FLOOD ADAPTATION"]         { background: var(--str-soft); color: var(--str); border-color: #9ecfe8; }
+    .status-chip[data-key="WATER MANAGEMENT"]         { background: #e6f4fb; color: #1a7fa8; border-color: #9fd0e8; }
+    .status-chip[data-key="WASTE MANAGEMENT"]         { background: #e9f5ec; color: #3a8a50; border-color: #9ed0ae; }
+    .status-chip[data-key="HEAT MITIGATION"]          { background: var(--opp-soft); color: var(--opp); border-color: #f4bb8e; }
+    .status-chip[data-key="IMPROVING INFRASTRUCTURE"] { background: var(--sand-mid); color: var(--ink-mid); border-color: var(--sand-dark); }
+
+    .status-chip-x {
+      font-size: 0.65rem;
+      font-weight: 400;
+      opacity: 0.65;
+      line-height: 1;
+      margin-left: 2px;
+      transition: opacity 0.12s;
+    }
+    .status-chip:hover .status-chip-x { opacity: 1; }
+
+    .status-clear {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      cursor: pointer;
+      padding: 5px 12px;
+      transition: color 0.18s, border-color 0.18s, background 0.18s;
+      white-space: nowrap;
+    }
+    .status-clear:hover {
+      color: var(--ink-mid);
+      border-color: var(--ink-faint);
+      background: var(--sand);
+    }
+
+    /* ── SEARCH + FILTER BAR (above intervention grid) ── */
+    .filter-bar {
+      padding: 1.5rem 0;
+      background: var(--sand-mid);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .filter-bar-inner {
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+
+    .search-wrap {
+      flex: 1; min-width: 220px; position: relative;
+    }
+
+    .search-wrap svg {
+      position: absolute; left: 14px; top: 50%;
+      transform: translateY(-50%); color: var(--ink-faint); pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%; padding: 10px 14px 10px 40px;
+      border: 1.5px solid var(--border); border-radius: 30px;
+      background: var(--sand); font-family: 'Jost', sans-serif;
+      font-size: 0.875rem; font-weight: 400; color: var(--ink);
+      outline: none; transition: border-color 0.18s, box-shadow 0.18s;
+    }
+    .search-input::placeholder { color: var(--ink-faint); }
+    .search-input:focus {
+      border-color: var(--ink-mid);
+      box-shadow: 0 0 0 3px rgba(90,82,72,0.08);
+    }
+
+    .result-count {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-faint);
+      white-space: nowrap;
+    }
+    .result-count span { color: var(--ink-mid); }
+
+    .filter-reset {
+      font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
+      background: none; border: none; cursor: pointer;
+      padding: 6px 4px; transition: color 0.18s; white-space: nowrap;
+    }
+    .filter-reset:hover { color: var(--ink-mid); }
+
+    /* ── INTERVENTION RESULTS SECTION ── */
+    .results-section {
+      padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(3rem, 6vw, 5rem);
+      overflow: hidden;
+    }
+
+    .results-section.hidden {
+      display: none;
+    }
+
+    /* Grid reveal — fades + rises when first appearing */
+    .card-grid-wrap {
+      animation: gridReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes gridReveal {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── CARD GRID — exact from inventory ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 1599px) { .card-grid { grid-template-columns: repeat(5, 1fr); } }
+    @media (max-width: 1199px) { .card-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+    @media (max-width: 699px)  { .card-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; } }
+    @media (max-width: 479px)  { .card-grid { grid-template-columns: 1fr; gap: 0.75rem; } }
+
+    /* ── CARD — exact from inventory ── */
+    .card {
+      display: flex; flex-direction: column;
+      background: var(--sand); border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+      text-decoration: none; color: inherit; position: relative;
+      animation: fadeUp 0.28s ease both;
+    }
+
+    .card:hover {
+      transform: translateY(-5px); box-shadow: var(--shadow-lg);
+      border-color: rgba(90,82,72,0.28);
+    }
+
+    .card-thumb {
+      width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
+      display: block; background: var(--sand-mid);
+    }
+
+    .card-body {
+      padding: 0.9rem 1rem 1.1rem; flex: 1;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+
+    .card-meta {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 0.5rem;
+    }
+
+    .card-scale {
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-faint);
+    }
+
+    .card-id {
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; color: var(--ink-faint);
+    }
+
+    .card-title {
+      font-size: 0.875rem; font-weight: 700; letter-spacing: -0.01em;
+      color: var(--ink); line-height: 1.25;
+    }
+
+    .card-needs { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: auto; }
+
+    .need-pill {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 3px 8px; border-radius: 20px; font-size: 0.57rem;
+      font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; white-space: nowrap;
+    }
+
+    .need-pill-dot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; }
+
+    .need--safety  { background: #f0edf9; color: #6b52ae; }
+    .need--safety  .need-pill-dot { background: #6b52ae; }
+    .need--flood   { background: var(--str-soft); color: var(--str); }
+    .need--flood   .need-pill-dot { background: var(--str); }
+    .need--water   { background: #e6f4fb; color: #1a7fa8; }
+    .need--water   .need-pill-dot { background: #1a7fa8; }
+    .need--waste   { background: #e9f5ec; color: #3a8a50; }
+    .need--waste   .need-pill-dot { background: #3a8a50; }
+    .need--heat    { background: var(--opp-soft); color: var(--opp); }
+    .need--heat    .need-pill-dot { background: var(--opp); }
+    .need--infra   { background: var(--sand-mid); color: var(--ink-mid); }
+    .need--infra   .need-pill-dot { background: var(--ink-mid); }
+
+    .card-keywords { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+
+    .keyword-tag {
+      font-size: 0.57rem; font-weight: 500; color: var(--ink-light);
+      background: var(--sand-mid); border-radius: 4px; padding: 2px 5px;
+    }
+
+    .card-materials { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+
+    .mat-chip {
+      font-size: 0.57rem; font-weight: 500; color: var(--ink-mid);
+      background: transparent; border: 1px solid var(--border); border-radius: 4px;
+      padding: 2px 6px; cursor: pointer; font-family: 'Jost', sans-serif;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      text-align: left; line-height: 1.4;
+    }
+    .mat-chip:hover { background: var(--sand-dark); border-color: var(--ink-faint); color: var(--ink); }
+
+    .card-arrow {
+      position: absolute; bottom: 1rem; right: 1rem;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--ink); display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: scale(0.8);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+
+    .card:hover .card-arrow { opacity: 1; transform: scale(1); }
+    .card-arrow svg { color: var(--sand); }
+
+    /* ── EMPTY / LOADING ── */
+    .empty-state {
+      grid-column: 1 / -1; text-align: center; padding: 5rem 2rem; color: var(--ink-faint);
+    }
+    .empty-state h3 { font-size: 1.1rem; font-weight: 600; color: var(--ink-mid); margin-bottom: 0.5rem; }
+    .empty-state p  { font-size: 0.875rem; font-weight: 300; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); padding: 2rem 0; }
+    .footer-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 0.75rem; font-weight: 400;
+      color: rgba(245,240,234,0.45); letter-spacing: 0.04em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo-link">
+          <img src="assets/logos/png 0.png" alt="Mukuru Design Catalogue"
+               class="nav-logo-mdc nav-logo-default" onerror="this.style.display='none'" />
+          <img src="assets/logos/png2.png" alt=""
+               class="nav-logo-mdc nav-logo-hover" onerror="this.style.display='none'" />
+        </a>
+        <div class="nav-divider"></div>
+        <div>
+          <span class="nav-brand-name">Mukuru Design Catalogue</span>
+          <span class="nav-brand-sub">Intervention Library</span>
+        </div>
+      </div>
+      <nav class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="inventory.html">Inventory</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="needs.html" class="nav-needs active">Needs</a></li>
+          <li><a href="issues.html">Issues</a></li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container">
+      <div class="page-header-inner">
+        <div>
+          <span class="eyebrow">Search by Need</span>
+          <h1>Need-Based Search</h1>
+          <p>Browse interventions according to the primary urban needs they address. Select one or more needs to discover interventions that respond to multiple challenges simultaneously.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NEED CARDS -->
+  <section class="needs-section">
+    <div class="container">
+      <div class="needs-grid" id="needs-grid">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar" id="status-bar">
+    <div class="container">
+      <div class="status-bar-inner" id="status-bar-inner">
+        <span class="status-text" id="status-text">Select one or more needs to begin browsing interventions.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR — only shown when needs are selected -->
+  <div class="filter-bar" id="filter-bar" style="display:none;">
+    <div class="container">
+      <div class="filter-bar-inner">
+        <div class="search-wrap">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10.5 10.5l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <input
+            type="text" class="search-input" id="search-input"
+            placeholder="Search within these interventions…" autocomplete="off"
+          />
+        </div>
+        <div class="result-count">
+          Showing <span id="count-num">0</span> interventions
+        </div>
+        <button class="filter-reset" id="search-reset">Clear search</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERVENTION RESULTS -->
+  <section class="results-section hidden" id="results-section">
+    <div class="container">
+      <div class="card-grid-wrap">
+        <div class="card-grid" id="card-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">Mukuru Design Catalogue &mdash; Urban Futures Studio</p>
+        <p class="footer-copy">All 36 interventions &copy; Mukuru</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Need config — maps master.json need keys → display + colour ──
+    const NEED_CONFIG = {
+      'HEAT MITIGATION':          { label: 'Heat Mitigation',          cls: 'need--heat' },
+      'WASTE MANAGEMENT':         { label: 'Waste Management',         cls: 'need--waste' },
+      'WATER MANAGEMENT':         { label: 'Water Management',         cls: 'need--water' },
+      'FLOOD ADAPTATION':         { label: 'Flood Adaptation',         cls: 'need--flood' },
+      'IMPROVE PERCEIVED SAFETY': { label: 'Improve Perceived Safety', cls: 'need--safety' },
+      'IMPROVING INFRASTRUCTURE': { label: 'Improving Infrastructure', cls: 'need--infra' },
+    };
+
+    // Maps needs.json need_name (Title Case) → master.json key (UPPERCASE)
+    // Derived automatically — no hardcoding of counts.
+    function canonicalKey(needName) {
+      return needName.trim().toUpperCase();
+    }
+
+    // ── Utility functions (identical to inventory.html) ──
+    function toArray(val) {
+      if (!val) return [];
+      if (Array.isArray(val)) return val.map(String);
+      return String(val).split(',').map(s => s.trim()).filter(Boolean);
+    }
+
+    function normaliseNeeds(raw) {
+      if (!raw) return [];
+      if (Array.isArray(raw)) return raw.map(n => n.trim().toUpperCase()).filter(n => n.length > 2);
+      return [String(raw).trim().toUpperCase()].filter(n => n.length > 2);
+    }
+
+    function normaliseScale(s) { return (s || '').trim().toLowerCase(); }
+
+    function cleanKeywords(kws) {
+      if (!Array.isArray(kws)) return [];
+      const out = [];
+      kws.forEach(kw => {
+        kw.split(/[\n\r]+/).forEach(part => {
+          const t = part.trim();
+          if (t.startsWith('#')) out.push(t);
+        });
+      });
+      return out.slice(0, 6);
+    }
+
+    function needPill(needKey) {
+      const cfg = NEED_CONFIG[needKey];
+      if (!cfg) return '';
+      return `<span class="need-pill ${cfg.cls}"><span class="need-pill-dot"></span>${cfg.label}</span>`;
+    }
+
+    function scaleLabel(scale) {
+      const labels = { street: 'Street', neighbourhood: 'Neighbourhood', settlement: 'Settlement' };
+      return labels[scale] || scale;
+    }
+
+    // Build search corpus for an item
+    function buildSearchCorpus(item) {
+      const matKey   = 'materials ';
+      const title    = (item.intervention || '').toLowerCase();
+      const mats     = toArray(item[matKey]).join(' ').toLowerCase();
+      const kwRaw    = toArray(item.keywords).join(' ').toLowerCase();
+      const needKeys = normaliseNeeds(item.needs);
+      const needLabels = needKeys.map(k => (NEED_CONFIG[k] ? NEED_CONFIG[k].label : k)).join(' ');
+      const needsStr = needKeys.join(' ').toLowerCase() + ' ' + needLabels.toLowerCase();
+      return `${title} ${mats} ${kwRaw} ${needsStr}`;
+    }
+
+    // Build an intervention card — exact design from inventory.html
+    function buildCard(item) {
+      const needs  = normaliseNeeds(item.needs);
+      const scale  = normaliseScale(item.scale);
+      const mats   = toArray(item['materials ']);
+      const kws    = cleanKeywords(item.keywords || []);
+      const href   = `interventions/${item.file_name}`;
+      const thumb  = `assets/intervention-images/${item.thumbnail}`;
+      const idStr  = String(item.id).padStart(2, '0');
+
+      const needsHtml = needs.map(n => needPill(n)).join('');
+
+      const kwHtml = kws.length
+        ? `<div class="card-keywords">${kws.map(k => `<span class="keyword-tag">${k}</span>`).join('')}</div>`
+        : '';
+
+      const matHtml = mats.length
+        ? `<div class="card-materials">${mats.map(m => {
+            const safe = m.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+            return `<button class="mat-chip" onclick="event.preventDefault();event.stopPropagation();" title="${safe}">${m}</button>`;
+          }).join('')}</div>`
+        : '';
+
+      return `
+        <a class="card" href="${href}">
+          <img class="card-thumb" src="${thumb}" alt="${item.intervention}"
+               loading="lazy" onerror="this.style.background='var(--sand-dark)';this.removeAttribute('src')" />
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-id">${idStr}</span>
+              <span class="card-scale">${scaleLabel(scale)}</span>
+            </div>
+            <h2 class="card-title">${item.intervention}</h2>
+            ${needsHtml ? `<div class="card-needs">${needsHtml}</div>` : ''}
+            ${matHtml}
+            ${kwHtml}
+          </div>
+          <div class="card-arrow">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 9.5l7-7M3.5 2.5H9.5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>`;
+    }
+
+    // ── State ──
+    let allData      = [];   // master.json
+    let needsDefs    = [];   // needs.json
+    let needCounts   = {};   // key → count
+    let selectedNeeds = new Set();
+    let searchVal    = '';
+
+    // Pre-compute per-need intervention counts
+    function buildNeedCounts() {
+      needCounts = {};
+      allData.forEach(item => {
+        normaliseNeeds(item.needs).forEach(key => {
+          needCounts[key] = (needCounts[key] || 0) + 1;
+        });
+      });
+    }
+
+    // Per-need colour tokens — tint, accent, accent-border, accent-text, subtitle
+    const NEED_CARD_THEME = {
+      'IMPROVE PERCEIVED SAFETY': {
+        tint:        'rgba(107, 82, 174, 0.06)',
+        accent:      '#6b52ae',
+        accentBorder:'rgba(107,82,174,0.3)',
+        accentText:  '#6b52ae',
+        subtitle:    'Community safety & nighttime mobility',
+      },
+      'FLOOD ADAPTATION': {
+        tint:        'rgba(46, 143, 191, 0.07)',
+        accent:      '#2e8fbf',
+        accentBorder:'rgba(46,143,191,0.3)',
+        accentText:  '#2e8fbf',
+        subtitle:    'Drainage, resilience & stormwater',
+      },
+      'WATER MANAGEMENT': {
+        tint:        'rgba(26, 127, 168, 0.06)',
+        accent:      '#1a7fa8',
+        accentBorder:'rgba(26,127,168,0.3)',
+        accentText:  '#1a7fa8',
+        subtitle:    'Access, quality & sanitation',
+      },
+      'WASTE MANAGEMENT': {
+        tint:        'rgba(58, 138, 80, 0.06)',
+        accent:      '#3a8a50',
+        accentBorder:'rgba(58,138,80,0.3)',
+        accentText:  '#3a8a50',
+        subtitle:    'Collection, recycling & clean spaces',
+      },
+      'HEAT MITIGATION': {
+        tint:        'rgba(232, 116, 42, 0.07)',
+        accent:      '#e8742a',
+        accentBorder:'rgba(232,116,42,0.3)',
+        accentText:  '#e8742a',
+        subtitle:    'Shade, cooling & thermal comfort',
+      },
+      'IMPROVING INFRASTRUCTURE': {
+        tint:        'rgba(90, 82, 72, 0.06)',
+        accent:      '#5a5248',
+        accentBorder:'rgba(90,82,72,0.22)',
+        accentText:  '#5a5248',
+        subtitle:    'Paths, lighting & public space',
+      },
+    };
+
+    // ── Render need cards ──
+    function renderNeedCards() {
+      const grid = document.getElementById('needs-grid');
+      grid.innerHTML = needsDefs.map((nd, i) => {
+        const key    = canonicalKey(nd.need_name);
+        const count  = needCounts[key] || 0;
+        const icon   = `assets/needs/${nd.icon}`;
+        const active = selectedNeeds.has(key) ? ' active' : '';
+        const theme  = NEED_CARD_THEME[key] || {};
+        const inlineStyle = [
+          `animation-delay:${i * 0.07}s`,
+          theme.tint        ? `--nc-tint:${theme.tint}`               : '',
+          theme.accent      ? `--nc-accent:${theme.accent}`           : '',
+          theme.accentBorder? `--nc-accent-border:${theme.accentBorder}` : '',
+          theme.accentText  ? `--nc-accent-text:${theme.accentText}`  : '',
+        ].filter(Boolean).join(';');
+
+        return `
+          <div class="need-card${active}" data-key="${key}"
+               style="${inlineStyle}"
+               tabindex="0" role="button"
+               aria-pressed="${selectedNeeds.has(key)}"
+               aria-label="${nd.need_name}: ${count} interventions">
+            <div class="need-card-check">
+              <svg width="10" height="9" viewBox="0 0 10 8" fill="none">
+                <path d="M1 4l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="need-card-count">${count} intervention${count !== 1 ? 's' : ''}</span>
+            <div class="need-card-icon-wrap">
+              <img class="need-card-icon" src="${icon}" alt="${nd.need_name}"
+                   onerror="this.style.opacity='0.2'" />
+            </div>
+            <div class="need-card-text">
+              <div class="need-card-title">${nd.need_name}</div>
+              ${theme.subtitle ? `<div class="need-card-subtitle">${theme.subtitle}</div>` : ''}
+            </div>
+          </div>`;
+      }).join('');
+
+      // Attach click + keyboard listeners
+      grid.querySelectorAll('.need-card').forEach(card => {
+        card.addEventListener('click', () => toggleNeed(card.dataset.key));
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleNeed(card.dataset.key); }
+        });
+      });
+    }
+
+    // ── Toggle a need selection ──
+    function toggleNeed(key) {
+      if (selectedNeeds.has(key)) {
+        selectedNeeds.delete(key);
+      } else {
+        selectedNeeds.add(key);
+      }
+      // Clear search when selection changes
+      searchVal = '';
+      const si = document.getElementById('search-input');
+      if (si) si.value = '';
+
+      // Reset scroll trigger when going back to empty
+      if (selectedNeeds.size === 0) {
+        const section = document.getElementById('results-section');
+        if (section) delete section.dataset.firstReveal;
+      }
+
+      renderNeedCards();
+      updateStatusBar();
+      filterAndRender();
+    }
+
+    // ── Status bar ──
+    function updateStatusBar() {
+      const inner = document.getElementById('status-bar-inner');
+      const hasSelection = selectedNeeds.size > 0;
+
+      if (!hasSelection) {
+        inner.innerHTML = `<span class="status-text" id="status-text">Select one or more needs to begin browsing interventions.</span>`;
+        return;
+      }
+
+      const matchCount = getFilteredInterventions().length;
+
+      const chipsHtml = [...selectedNeeds].map(key => {
+        const cfg  = NEED_CONFIG[key];
+        const label = cfg ? cfg.label : key;
+        return `<button class="status-chip" data-key="${key}" title="Remove ${label}" aria-label="Remove ${label}">
+          ${label}<span class="status-chip-x">✕</span>
+        </button>`;
+      }).join('');
+
+      inner.innerHTML = `
+        <span class="status-text">
+          <strong>${selectedNeeds.size} need${selectedNeeds.size !== 1 ? 's' : ''} selected</strong>
+          &nbsp;·&nbsp;
+          <strong>${matchCount}</strong> intervention${matchCount !== 1 ? 's' : ''} found
+        </span>
+        <div class="status-chips">${chipsHtml}</div>
+        <button class="status-clear" id="status-clear">Clear all</button>`;
+
+      inner.querySelectorAll('.status-chip').forEach(chip => {
+        chip.addEventListener('click', () => toggleNeed(chip.dataset.key));
+      });
+
+      document.getElementById('status-clear').addEventListener('click', clearAll);
+    }
+
+    function clearAll() {
+      selectedNeeds.clear();
+      searchVal = '';
+      const si = document.getElementById('search-input');
+      if (si) si.value = '';
+      const section = document.getElementById('results-section');
+      if (section) delete section.dataset.firstReveal;
+      renderNeedCards();
+      updateStatusBar();
+      filterAndRender();
+    }
+
+    // ── Get filtered interventions (by selected needs + search) ──
+    function getFilteredInterventions() {
+      if (selectedNeeds.size === 0) return [];
+
+      const q = searchVal.trim().toLowerCase();
+
+      return allData.filter(item => {
+        // Must match ANY selected need
+        const itemNeeds = normaliseNeeds(item.needs);
+        const matchesNeed = itemNeeds.some(n => selectedNeeds.has(n));
+        if (!matchesNeed) return false;
+
+        // Must match search query (across title, keywords, materials)
+        if (q) {
+          const corpus = buildSearchCorpus(item);
+          if (!corpus.includes(q)) return false;
+        }
+
+        return true;
+      });
+    }
+
+    // ── Render intervention grid ──
+    function filterAndRender() {
+      const section    = document.getElementById('results-section');
+      const filterBar  = document.getElementById('filter-bar');
+      const grid       = document.getElementById('card-grid');
+      const wrap       = grid.closest('.card-grid-wrap');
+      const countEl    = document.getElementById('count-num');
+
+      const hasSelection = selectedNeeds.size > 0;
+      section.classList.toggle('hidden', !hasSelection);
+      filterBar.style.display = hasSelection ? '' : 'none';
+
+      if (!hasSelection) return;
+
+      const filtered = getFilteredInterventions();
+      if (countEl) countEl.textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <h3>No interventions found</h3>
+            <p>Try adjusting your search or selecting different needs.</p>
+          </div>`;
+        return;
+      }
+
+      // Build cards with staggered animation delays
+      grid.innerHTML = filtered.map((item, idx) => {
+        const delay = Math.min(idx * 0.035, 0.55);
+        return buildCard(item).replace('<a class="card"', `<a class="card" style="animation-delay:${delay}s"`);
+      }).join('');
+
+      // Trigger grid-wrap re-animation on every new render
+      if (wrap) {
+        wrap.style.animation = 'none';
+        wrap.offsetHeight; // reflow
+        wrap.style.animation = '';
+      }
+
+      // Scroll results into view on first selection (when previously hidden)
+      if (section.dataset.firstReveal !== '1') {
+        section.dataset.firstReveal = '1';
+        requestAnimationFrame(() => {
+          section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+      }
+    }
+
+    // Watch for selection changes to reset firstReveal flag
+    const _origToggle = toggleNeed;
+
+    // ── Wire search input ──
+    function wireSearch() {
+      const input = document.getElementById('search-input');
+      const reset = document.getElementById('search-reset');
+      if (!input) return;
+
+      input.addEventListener('input', () => {
+        searchVal = input.value;
+        updateStatusBar();
+        filterAndRender();
+      });
+
+      if (reset) {
+        reset.addEventListener('click', () => {
+          searchVal = '';
+          input.value = '';
+          updateStatusBar();
+          filterAndRender();
+        });
+      }
+    }
+
+    // ── Load data ──
+    Promise.all([
+      fetch('data/master.json').then(r => r.json()),
+      fetch('data/needs.json').then(r => r.json()),
+    ])
+    .then(([master, needs]) => {
+      allData   = master;
+      needsDefs = needs;
+      buildNeedCounts();
+      renderNeedCards();
+      updateStatusBar();
+      wireSearch();
+    })
+    .catch(err => {
+      document.getElementById('needs-grid').innerHTML = `
+        <div class="empty-state" style="grid-column:1/-1">
+          <h3>Could not load data</h3>
+          <p>Please check that data/master.json and data/needs.json are accessible.</p>
+        </div>`;
+      console.error('Failed to load data', err);
+    });
+  </script>
+
+</body>
+</html>

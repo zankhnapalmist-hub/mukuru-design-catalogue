@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search by Issues — Mukuru Design Catalogue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --sand:       #f5f0ea;
+      --sand-mid:   #ede7df;
+      --sand-dark:  #d8cfc4;
+      --ink:        #2a2520;
+      --ink-mid:    #5a5248;
+      --ink-light:  #8a8078;
+      --ink-faint:  #b8afa6;
+      --opp:        #e8742a;
+      --opp-soft:   #fdf0e6;
+      --str:        #2e8fbf;
+      --str-soft:   #e6f4fb;
+      --border:     rgba(90,82,72,0.13);
+      --shadow-sm:  0 1px 4px rgba(42,37,32,0.07);
+      --shadow-md:  0 4px 16px rgba(42,37,32,0.10);
+      --shadow-lg:  0 8px 40px rgba(42,37,32,0.14);
+      --radius-md:  12px;
+      --radius-lg:  18px;
+      --max-w:      1600px;
+      --pad:        clamp(1.25rem, 3vw, 2.5rem);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--sand);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,234,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left { display: flex; align-items: center; gap: 16px; }
+
+    .nav-logo-link { position: relative; display: block; height: 68px; }
+    .nav-logo-mdc  { height: 68px; width: auto; display: block; }
+    .nav-logo-hover  { position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.22s ease; }
+    .nav-logo-default { transition: opacity 0.22s ease; }
+    .nav-logo-link:hover .nav-logo-default { opacity: 0; }
+    .nav-logo-link:hover .nav-logo-hover   { opacity: 1; }
+
+    .nav-divider { width: 1px; height: 28px; background: var(--border); }
+
+    .nav-brand-name {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.03em;
+      color: var(--ink); display: block; line-height: 1.3;
+    }
+    .nav-brand-sub {
+      font-size: 9.5px; font-style: italic; font-weight: 300;
+      color: var(--ink-light); letter-spacing: 0.05em;
+    }
+
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-links  { display: flex; align-items: center; gap: 6px; list-style: none; }
+
+    .nav-links a {
+      text-decoration: none; font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light);
+      padding: 6px 12px; border-radius: 20px;
+      transition: color 0.18s, background 0.18s;
+    }
+    .nav-links a:hover { color: var(--ink); background: var(--sand-mid); }
+
+    .nav-links a.nav-issues {
+      background: var(--ink); color: var(--sand);
+      padding: 8px 18px; font-weight: 700;
+    }
+    .nav-links a.nav-issues:hover { background: #3d3530; color: var(--sand); }
+
+    .nav-links a.active { color: var(--ink-mid); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: clamp(3rem, 6vw, 5rem) 0 clamp(2rem, 4vw, 3rem);
+      background: var(--sand);
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1rem;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: var(--ink);
+      margin-bottom: 0.85rem;
+    }
+
+    .page-header p {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      max-width: 56ch;
+      margin: 0 auto;
+    }
+
+    /* ── SEARCH HERO ── */
+    .search-hero {
+      padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(1rem, 2vw, 1.5rem);
+      background: var(--sand);
+    }
+
+    .search-hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .search-field-wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-field-wrap svg.search-icon {
+      position: absolute;
+      left: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-faint);
+      pointer-events: none;
+      transition: color 0.18s;
+    }
+
+    .search-field-wrap:focus-within svg.search-icon {
+      color: var(--ink-mid);
+    }
+
+    .search-field {
+      width: 100%;
+      padding: 18px 56px 18px 58px;
+      border: 2px solid var(--border);
+      border-radius: 40px;
+      background: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--ink);
+      outline: none;
+      box-shadow: var(--shadow-md);
+      transition: border-color 0.22s, box-shadow 0.22s;
+    }
+
+    .search-field::placeholder { color: var(--ink-faint); }
+
+    .search-field:focus {
+      border-color: var(--ink-mid);
+      box-shadow: 0 0 0 4px rgba(90,82,72,0.08), var(--shadow-md);
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--sand-mid);
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-mid);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .search-clear.visible { display: flex; }
+    .search-clear:hover { background: var(--sand-dark); color: var(--ink); }
+
+    /* ── SUGGESTION CHIPS ── */
+    .suggestions-wrap {
+      margin-top: 1.25rem;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.28s ease,
+                  margin 0.28s ease;
+      max-height: 200px;
+      opacity: 1;
+    }
+
+    .suggestions-wrap.hidden {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    .suggestions-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 0.65rem;
+      text-align: left;
+    }
+
+    .suggestion-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--ink-mid);
+      background: var(--sand);
+      border: 1.5px solid var(--border);
+      border-radius: 30px;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.18s;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .chip:hover {
+      background: var(--sand-mid);
+      border-color: var(--ink-faint);
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .chip.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--sand);
+      transform: translateY(-1px);
+    }
+
+    /* ── RESULTS AREA ── */
+    .results-area {
+      padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(3rem, 6vw, 5rem);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── RESULT META BAR ── */
+    .result-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+    }
+
+    .result-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .result-label span { color: var(--ink-mid); }
+
+    /* ── EMPTY STATES ── */
+    .empty-state {
+      text-align: center;
+      padding: 5rem 2rem;
+      color: var(--ink-faint);
+      animation: fadeUp 0.32s ease both;
+    }
+
+    .empty-state-icon {
+      margin: 0 auto 1.5rem;
+      width: 56px;
+      height: 56px;
+      opacity: 0.25;
+    }
+
+    .empty-state h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink-mid);
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-state p {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      max-width: 36ch;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .empty-state-hints {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.25rem;
+    }
+
+    .empty-state-hint {
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--ink-faint);
+      background: var(--sand-mid);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 12px;
+    }
+
+    /* ── CARD GRID ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 1599px) { .card-grid { grid-template-columns: repeat(5, 1fr); } }
+    @media (max-width: 1199px) { .card-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+    @media (max-width: 699px)  { .card-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; } }
+    @media (max-width: 479px)  { .card-grid { grid-template-columns: 1fr; gap: 0.75rem; } }
+
+    /* ── CARD — exact from inventory ── */
+    .card {
+      display: flex; flex-direction: column;
+      background: var(--sand); border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+      text-decoration: none; color: inherit; position: relative;
+      animation: fadeUp 0.28s ease both;
+    }
+
+    .card:hover {
+      transform: translateY(-5px); box-shadow: var(--shadow-lg);
+      border-color: rgba(90,82,72,0.28);
+    }
+
+    .card-thumb {
+      width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
+      display: block; background: var(--sand-mid);
+    }
+
+    .card-body {
+      padding: 0.9rem 1rem 1.1rem; flex: 1;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+
+    .card-meta {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 0.5rem;
+    }
+
+    .card-scale {
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-faint);
+    }
+
+    .card-id {
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; color: var(--ink-faint);
+    }
+
+    .card-title {
+      font-size: 0.875rem; font-weight: 700; letter-spacing: -0.01em;
+      color: var(--ink); line-height: 1.25;
+    }
+
+    .card-needs { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: auto; }
+
+    .need-pill {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 3px 8px; border-radius: 20px; font-size: 0.57rem;
+      font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; white-space: nowrap;
+    }
+
+    .need-pill-dot { width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; }
+
+    .need--safety  { background: #f0edf9; color: #6b52ae; }
+    .need--safety  .need-pill-dot { background: #6b52ae; }
+    .need--flood   { background: var(--str-soft); color: var(--str); }
+    .need--flood   .need-pill-dot { background: var(--str); }
+    .need--water   { background: #e6f4fb; color: #1a7fa8; }
+    .need--water   .need-pill-dot { background: #1a7fa8; }
+    .need--waste   { background: #e9f5ec; color: #3a8a50; }
+    .need--waste   .need-pill-dot { background: #3a8a50; }
+    .need--heat    { background: var(--opp-soft); color: var(--opp); }
+    .need--heat    .need-pill-dot { background: var(--opp); }
+    .need--infra   { background: var(--sand-mid); color: var(--ink-mid); }
+    .need--infra   .need-pill-dot { background: var(--ink-mid); }
+
+    .card-keywords { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+
+    .keyword-tag {
+      font-size: 0.57rem; font-weight: 500; color: var(--ink-light);
+      background: var(--sand-mid); border-radius: 4px; padding: 2px 5px;
+    }
+
+    .card-materials { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+
+    .mat-chip {
+      font-size: 0.57rem; font-weight: 500; color: var(--ink-mid);
+      background: transparent; border: 1px solid var(--border); border-radius: 4px;
+      padding: 2px 6px; cursor: pointer; font-family: 'Jost', sans-serif;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      text-align: left; line-height: 1.4;
+    }
+    .mat-chip:hover { background: var(--sand-dark); border-color: var(--ink-faint); color: var(--ink); }
+
+    .card-arrow {
+      position: absolute; bottom: 1rem; right: 1rem;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--ink); display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: scale(0.8);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+    .card:hover .card-arrow { opacity: 1; transform: scale(1); }
+    .card-arrow svg { color: var(--sand); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--ink); padding: 2rem 0; }
+    .footer-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-size: 0.75rem; font-weight: 400;
+      color: rgba(245,240,234,0.45); letter-spacing: 0.04em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes gridReveal {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .grid-reveal {
+      animation: gridReveal 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo-link">
+          <img src="assets/logos/png 0.png" alt="Mukuru Design Catalogue"
+               class="nav-logo-mdc nav-logo-default" onerror="this.style.display='none'" />
+          <img src="assets/logos/png2.png" alt=""
+               class="nav-logo-mdc nav-logo-hover" onerror="this.style.display='none'" />
+        </a>
+        <div class="nav-divider"></div>
+        <div>
+          <span class="nav-brand-name">Mukuru Design Catalogue</span>
+          <span class="nav-brand-sub">Intervention Library</span>
+        </div>
+      </div>
+      <nav class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="inventory.html">Inventory</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="needs.html">Needs</a></li>
+          <li><a href="issues.html" class="nav-issues active">Issues</a></li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container">
+      <span class="eyebrow">Keyword Search</span>
+      <h1>Search by Issues</h1>
+      <p>Search the catalogue using any design issue, challenge, keyword, material, intervention name or concept. This pathway is intended for users who know the problem they are trying to solve rather than the intervention itself.</p>
+    </div>
+  </header>
+
+  <!-- SEARCH HERO -->
+  <div class="search-hero">
+    <div class="container">
+      <div class="search-hero-inner">
+
+        <!-- Search field -->
+        <div class="search-field-wrap">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="8.5" cy="8.5" r="6" stroke="currentColor" stroke-width="1.75"/>
+            <path d="M13.5 13.5l4.5 4.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+          </svg>
+          <input
+            type="text"
+            class="search-field"
+            id="search-field"
+            placeholder="Search issues, keywords, materials, intervention names…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="search-clear" id="search-clear" aria-label="Clear search">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Suggestion chips -->
+        <div class="suggestions-wrap" id="suggestions-wrap">
+          <div class="suggestions-label">Popular searches</div>
+          <div class="suggestion-chips" id="suggestion-chips">
+            <!-- rendered by JS -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <section class="results-area" id="results-area">
+    <div class="container">
+
+      <!-- meta bar — only shown when there are results -->
+      <div class="result-meta" id="result-meta" style="display:none;">
+        <div class="result-label" id="result-label">Showing <span id="count-num">0</span> matching interventions</div>
+      </div>
+
+      <!-- card grid or empty state -->
+      <div id="results-target">
+        <!-- initial empty state -->
+        <div class="empty-state" id="initial-state">
+          <svg class="empty-state-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M36 36l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <h3>Start exploring the catalogue</h3>
+          <p>Start typing or choose a topic above to explore interventions.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">Mukuru Design Catalogue &mdash; Urban Futures Studio</p>
+        <p class="footer-copy">All 36 interventions &copy; Mukuru</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Need config ──
+    const NEED_CONFIG = {
+      'HEAT MITIGATION':          { label: 'Heat Mitigation',          cls: 'need--heat' },
+      'WASTE MANAGEMENT':         { label: 'Waste Management',         cls: 'need--waste' },
+      'WATER MANAGEMENT':         { label: 'Water Management',         cls: 'need--water' },
+      'FLOOD ADAPTATION':         { label: 'Flood Adaptation',         cls: 'need--flood' },
+      'IMPROVE PERCEIVED SAFETY': { label: 'Improve Perceived Safety', cls: 'need--safety' },
+      'IMPROVING INFRASTRUCTURE': { label: 'Improving Infrastructure', cls: 'need--infra' },
+    };
+
+    // ── Utilities (shared across all catalogue pages) ──
+    function toArray(val) {
+      if (!val) return [];
+      if (Array.isArray(val)) return val.map(String);
+      return String(val).split(',').map(s => s.trim()).filter(Boolean);
+    }
+
+    function normaliseNeeds(raw) {
+      if (!raw) return [];
+      if (Array.isArray(raw)) return raw.map(n => n.trim().toUpperCase()).filter(n => n.length > 2);
+      return [String(raw).trim().toUpperCase()].filter(n => n.length > 2);
+    }
+
+    function normaliseScale(s) { return (s || '').trim().toLowerCase(); }
+
+    function cleanKeywords(kws) {
+      if (!Array.isArray(kws)) return [];
+      const out = [];
+      kws.forEach(kw => {
+        kw.split(/[\n\r]+/).forEach(part => {
+          const t = part.trim();
+          if (t.startsWith('#')) out.push(t);
+        });
+      });
+      return out.slice(0, 6);
+    }
+
+    function needPill(needKey) {
+      const cfg = NEED_CONFIG[needKey];
+      if (!cfg) return '';
+      return `<span class="need-pill ${cfg.cls}"><span class="need-pill-dot"></span>${cfg.label}</span>`;
+    }
+
+    function scaleLabel(scale) {
+      const labels = { street: 'Street', neighbourhood: 'Neighbourhood', settlement: 'Settlement' };
+      return labels[scale] || scale;
+    }
+
+    function buildSearchCorpus(item) {
+      const title      = (item.intervention || '').toLowerCase();
+      const mats       = toArray(item['materials ']).join(' ').toLowerCase();
+      const kwRaw      = toArray(item.keywords).join(' ').toLowerCase();
+      const needKeys   = normaliseNeeds(item.needs);
+      const needLabels = needKeys.map(k => NEED_CONFIG[k] ? NEED_CONFIG[k].label : k).join(' ');
+      const needsStr   = needKeys.join(' ').toLowerCase() + ' ' + needLabels.toLowerCase();
+      const scale      = normaliseScale(item.scale);
+      const fileName   = (item.file_name || '').toLowerCase();
+      return `${title} ${mats} ${kwRaw} ${needsStr} ${scale} ${fileName}`;
+    }
+
+    // ── Build intervention card (exact from inventory) ──
+    function buildCard(item, delay = 0) {
+      const needs  = normaliseNeeds(item.needs);
+      const scale  = normaliseScale(item.scale);
+      const mats   = toArray(item['materials ']);
+      const kws    = cleanKeywords(item.keywords || []);
+      const href   = `interventions/${item.file_name}`;
+      const thumb  = `assets/intervention-images/${item.thumbnail}`;
+      const idStr  = String(item.id).padStart(2, '0');
+
+      const needsHtml = needs.map(n => needPill(n)).join('');
+      const kwHtml    = kws.length
+        ? `<div class="card-keywords">${kws.map(k => `<span class="keyword-tag">${k}</span>`).join('')}</div>`
+        : '';
+      const matHtml   = mats.length
+        ? `<div class="card-materials">${mats.map(m => {
+            const safe = m.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+            return `<button class="mat-chip" onclick="event.preventDefault();event.stopPropagation();" title="${safe}">${m}</button>`;
+          }).join('')}</div>`
+        : '';
+
+      return `
+        <a class="card" href="${href}" style="animation-delay:${delay}s">
+          <img class="card-thumb" src="${thumb}" alt="${item.intervention}"
+               loading="lazy" onerror="this.style.background='var(--sand-dark)';this.removeAttribute('src')" />
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-id">${idStr}</span>
+              <span class="card-scale">${scaleLabel(scale)}</span>
+            </div>
+            <h2 class="card-title">${item.intervention}</h2>
+            ${needsHtml ? `<div class="card-needs">${needsHtml}</div>` : ''}
+            ${matHtml}
+            ${kwHtml}
+          </div>
+          <div class="card-arrow">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+              <path d="M2.5 9.5l7-7M3.5 2.5H9.5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>`;
+    }
+
+    // ── Suggestion chips config ──
+    const SUGGESTIONS = [
+      'Heat', 'Flood', 'Waste', 'Water', 'Safety', 'Infrastructure',
+      'Lighting', 'Drainage', 'Cooling', 'Community', 'Plastic', 'Solar',
+    ];
+
+    // ── State ──
+    let allData       = [];
+    let searchVal     = '';
+    let activeChip    = null;
+
+    // ── Render suggestion chips ──
+    function renderChips() {
+      const wrap = document.getElementById('suggestion-chips');
+      wrap.innerHTML = SUGGESTIONS.map(s => `
+        <button class="chip${activeChip === s ? ' active' : ''}" data-suggestion="${s}">
+          ${s}
+        </button>`).join('');
+
+      wrap.querySelectorAll('.chip').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const val = btn.dataset.suggestion;
+          const field = document.getElementById('search-field');
+          if (activeChip === val) {
+            // deselect — clear search
+            activeChip = null;
+            searchVal  = '';
+            field.value = '';
+          } else {
+            activeChip  = val;
+            searchVal   = val;
+            field.value = val;
+          }
+          renderChips();
+          runSearch();
+        });
+      });
+    }
+
+    // ── Show / hide suggestions ──
+    function updateSuggestionsVisibility() {
+      const wrap = document.getElementById('suggestions-wrap');
+      // Show suggestions when field is empty
+      if (searchVal.trim() === '') {
+        wrap.classList.remove('hidden');
+      } else {
+        wrap.classList.add('hidden');
+      }
+    }
+
+    // ── Run search ──
+    function runSearch() {
+      const target  = document.getElementById('results-target');
+      const metaBar = document.getElementById('result-meta');
+      const countEl = document.getElementById('count-num');
+      const q       = searchVal.trim().toLowerCase();
+
+      updateSuggestionsVisibility();
+
+      // No query — show initial state
+      if (!q) {
+        metaBar.style.display = 'none';
+        target.innerHTML = `
+          <div class="empty-state" id="initial-state">
+            <svg class="empty-state-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M36 36l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <h3>Start exploring the catalogue</h3>
+            <p>Start typing or choose a topic above to explore interventions.</p>
+          </div>`;
+        return;
+      }
+
+      const filtered = allData.filter(item => buildSearchCorpus(item).includes(q));
+
+      // No results
+      if (filtered.length === 0) {
+        metaBar.style.display = 'none';
+        target.innerHTML = `
+          <div class="empty-state">
+            <svg class="empty-state-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M36 36l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <h3>No interventions matched your search</h3>
+            <p>Try different or broader keywords.</p>
+            <div class="empty-state-hints">
+              <span class="empty-state-hint">Check spelling</span>
+              <span class="empty-state-hint">Use broader keywords</span>
+              <span class="empty-state-hint">Try a material or need name</span>
+            </div>
+          </div>`;
+        return;
+      }
+
+      // Render results
+      metaBar.style.display = 'flex';
+      countEl.textContent = filtered.length;
+
+      const html = filtered.map((item, i) =>
+        buildCard(item, Math.min(i * 0.035, 0.5))
+      ).join('');
+
+      target.innerHTML = `<div class="card-grid grid-reveal">${html}</div>`;
+    }
+
+    // ── Wire search input ──
+    function wireSearch() {
+      const field = document.getElementById('search-field');
+      const clear = document.getElementById('search-clear');
+
+      field.addEventListener('input', () => {
+        searchVal  = field.value;
+        activeChip = null; // typing deactivates chip
+        renderChips();
+        // show/hide clear button
+        clear.classList.toggle('visible', searchVal.length > 0);
+        runSearch();
+      });
+
+      clear.addEventListener('click', () => {
+        searchVal   = '';
+        activeChip  = null;
+        field.value = '';
+        clear.classList.remove('visible');
+        renderChips();
+        runSearch();
+        field.focus();
+      });
+    }
+
+    // ── Init ──
+    renderChips();
+
+    fetch('data/master.json')
+      .then(r => r.json())
+      .then(data => {
+        allData = data;
+        wireSearch();
+      })
+      .catch(err => {
+        document.getElementById('results-target').innerHTML = `
+          <div class="empty-state">
+            <h3>Could not load catalogue data</h3>
+            <p>Please check that data/master.json is accessible.</p>
+          </div>`;
+        console.error('Failed to load master.json', err);
+      });
+  </script>
+
+</body>
+</html>

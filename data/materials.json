@@ -1,0 +1,608 @@
+[
+  {
+    "material_name": "Solar streetlight pole",
+    "category": "Public Infrastructure",
+    "image_name": "solar_streetlight_pole.png",
+    "description": "Pole-mounted fixture holding solar light and battery, providing illumination along streets and pathways at night."
+  },
+  {
+    "material_name": "Battery + charge controller",
+    "category": "Public Infrastructure",
+    "image_name": "battery_charge_controller.png",
+    "description": "Stores solar-generated electricity and regulates charging, powering lights or devices safely after sunset."
+  },
+  {
+    "material_name": "Concrete footing",
+    "category": "Construction & Salvage",
+    "image_name": "concrete_footing.png",
+    "description": "Solid base anchoring poles or structures firmly into the ground, preventing tipping or movement."
+  },
+  {
+    "material_name": "Anti-vandalism cage",
+    "category": "Metal & Fabrication",
+    "image_name": "anti_vandalism_cage.png",
+    "description": "Protective metal enclosure shielding equipment like lights or batteries from theft, tampering, or damage."
+  },
+  {
+    "material_name": "Reporting phone / SIM",
+    "category": "Public Infrastructure",
+    "image_name": "reporting_phone_sim.png",
+    "description": "Mobile phone line allowing residents to report safety incidents or maintenance issues quickly."
+  },
+  {
+    "material_name": "Safety map",
+    "category": "Public Infrastructure",
+    "image_name": "safety_map.png",
+    "description": "Visual map marking risk zones, lit areas, and safe routes to guide community movement."
+  },
+  {
+    "material_name": "Repurposed plastic bottles",
+    "category": "Plastic & Recycling",
+    "image_name": "repurposed_plastic_bottles.png",
+    "description": "Waste-stream PET bottles reused as building or cooling material, reducing plastic waste locally."
+  },
+  {
+    "material_name": "Window / wall frame",
+    "category": "Construction & Salvage",
+    "image_name": "window_wall_frame.png",
+    "description": "Structural frame holding window or wall components, often salvaged for reuse in construction."
+  },
+  {
+    "material_name": "Mesh screen (insect)",
+    "category": "Textile & Shade Materials",
+    "image_name": "mesh_screen_insect.png",
+    "description": "Fine netting fitted over openings to keep insects out while allowing airflow through."
+  },
+  {
+    "material_name": "Binding / fixing",
+    "category": "Construction & Salvage",
+    "image_name": "binding_fixing.png",
+    "description": "Wire, rope, or fasteners used to secure materials together during construction or assembly."
+  },
+  {
+    "material_name": "Thermometer (monitoring)",
+    "category": "Public Infrastructure",
+    "image_name": "thermometer_monitoring.png",
+    "description": "Simple instrument tracking indoor or outdoor temperature to monitor heat conditions over time."
+  },
+  {
+    "material_name": "Fabric",
+    "category": "Textile & Shade Materials",
+    "image_name": "fabric.png",
+    "description": "Woven textile material used for shading, covering, or insulation in low-cost construction."
+  },
+  {
+    "material_name": "Cable",
+    "category": "Metal & Fabrication",
+    "image_name": "cable.png",
+    "description": "Electrical wiring connecting solar panels, batteries, and lights or other powered devices."
+  },
+  {
+    "material_name": "Eye bolts",
+    "category": "Metal & Fabrication",
+    "image_name": "eye_bolts.png",
+    "description": "Metal bolts with looped heads used to anchor ropes, cables, or hanging structures."
+  },
+  {
+    "material_name": "Wooden poles",
+    "category": "Construction & Salvage",
+    "image_name": "wooden_poles.png",
+    "description": "Vertical timber supports used to hold up shading structures, fences, or canopies."
+  },
+  {
+    "material_name": "Thread",
+    "category": "Textile & Shade Materials",
+    "image_name": "thread.png",
+    "description": "Strong cord or yarn used for stitching, hanging, or securing lightweight materials."
+  },
+  {
+    "material_name": "Existing shade",
+    "category": "Textile & Shade Materials",
+    "image_name": "existing_shade.png",
+    "description": "Naturally occurring or pre-existing shaded area incorporated into the intervention design."
+  },
+  {
+    "material_name": "Seating capacity",
+    "category": "Public Infrastructure",
+    "image_name": "seating_capacity.png",
+    "description": "Number and arrangement of seats provided within a shared community space."
+  },
+  {
+    "material_name": "Drinking water access",
+    "category": "Water & Sanitation",
+    "image_name": "drinking_water_access.png",
+    "description": "Point where residents can safely access clean water for daily consumption."
+  },
+  {
+    "material_name": "Simple signage",
+    "category": "Public Infrastructure",
+    "image_name": "simple_signage.png",
+    "description": "Basic printed or painted sign communicating directions, rules, or safety information clearly."
+  },
+  {
+    "material_name": "A named host",
+    "category": "Public Infrastructure",
+    "image_name": "a_named_host.png",
+    "description": "Designated community member responsible for managing or maintaining the shared space."
+  },
+  {
+    "material_name": "Shredded plastic waste",
+    "category": "Plastic & Recycling",
+    "image_name": "shredded_plastic_waste.png",
+    "description": "Plastic collected and cut into small pieces for reuse as raw material."
+  },
+  {
+    "material_name": "Sand (binder)",
+    "category": "Construction & Salvage",
+    "image_name": "sand_binder.png",
+    "description": "Fine aggregate mixed with other materials to bind and strengthen construction surfaces."
+  },
+  {
+    "material_name": "Light-duty paver (30mm)",
+    "category": "Construction & Salvage",
+    "image_name": "light_duty_paver_30mm.png",
+    "description": "Thin concrete or recycled-material block used for low-traffic walking surfaces."
+  },
+  {
+    "material_name": "Heavy-duty paver (60mm)",
+    "category": "Construction & Salvage",
+    "image_name": "heavy_duty_paver_60mm.png",
+    "description": "Thicker paving block designed to withstand vehicle or heavy foot traffic."
+  },
+  {
+    "material_name": "Light pigment / coating",
+    "category": "Construction & Salvage",
+    "image_name": "light_pigment_coating.png",
+    "description": "Reflective paint or finish applied to surfaces to reduce heat absorption."
+  },
+  {
+    "material_name": "HDPE pipe (halved)",
+    "category": "Water & Sanitation",
+    "image_name": "hdpe_pipe_halved.png",
+    "description": "Durable plastic pipe cut lengthwise, repurposed as a channel or planter."
+  },
+  {
+    "material_name": "Timber battens",
+    "category": "Construction & Salvage",
+    "image_name": "timber_battens.png",
+    "description": "Thin wooden strips used to frame or support shading and roofing structures."
+  },
+  {
+    "material_name": "Metal hooks",
+    "category": "Metal & Fabrication",
+    "image_name": "metal_hooks.png",
+    "description": "Small metal fixtures used to hang or secure lightweight materials and fabric."
+  },
+  {
+    "material_name": "Growing medium",
+    "category": "Green Infrastructure",
+    "image_name": "growing_medium.png",
+    "description": "Soil or compost mixture supporting plant growth in green infrastructure interventions."
+  },
+  {
+    "material_name": "Drainage stoppers",
+    "category": "Water & Sanitation",
+    "image_name": "drainage_stoppers.png",
+    "description": "Removable fittings controlling water flow direction within drainage channels or pipes."
+  },
+  {
+    "material_name": "Covered building / shed",
+    "category": "Construction & Salvage",
+    "image_name": "covered_building_shed.png",
+    "description": "Roofed structure providing shelter for storage, sorting, or community activities."
+  },
+  {
+    "material_name": "Sorting bays",
+    "category": "Public Infrastructure",
+    "image_name": "sorting_bays.png",
+    "description": "Designated sections for separating waste materials by type before collection or reuse."
+  },
+  {
+    "material_name": "Weighing scale",
+    "category": "Public Infrastructure",
+    "image_name": "weighing_scale.png",
+    "description": "Equipment used to measure waste or material quantities for sale or tracking."
+  },
+  {
+    "material_name": "Protective equipment",
+    "category": "Public Infrastructure",
+    "image_name": "protective_equipment.png",
+    "description": "Gloves, boots, and masks safeguarding workers handling waste or hazardous materials."
+  },
+  {
+    "material_name": "Buyer agreements",
+    "category": "Public Infrastructure",
+    "image_name": "buyer_agreements.png",
+    "description": "Informal or formal arrangements with buyers to purchase collected recyclable materials."
+  },
+  {
+    "material_name": "Dispenser unit",
+    "category": "Water & Sanitation",
+    "image_name": "dispenser_unit.png",
+    "description": "Fixture controlling the release of water, soap, or another resource at point of use."
+  },
+  {
+    "material_name": "Solar panel + battery",
+    "category": "Public Infrastructure",
+    "image_name": "solar_panel_battery.png",
+    "description": "Combined system generating and storing solar electricity for lighting or appliances."
+  },
+  {
+    "material_name": "Prepaid WaterCards",
+    "category": "Water & Sanitation",
+    "image_name": "prepaid_watercards.png",
+    "description": "Cards loaded with credit allowing residents to pay for metered water access."
+  },
+  {
+    "material_name": "Bulk water supply connection",
+    "category": "Water & Sanitation",
+    "image_name": "bulk_water_supply_connection.png",
+    "description": "Pipeline linking a community point to the main municipal water network."
+  },
+  {
+    "material_name": "Settling tank",
+    "category": "Water & Sanitation",
+    "image_name": "settling_tank.png",
+    "description": "Container allowing solid waste to settle out of wastewater before further treatment."
+  },
+  {
+    "material_name": "Anaerobic chambers",
+    "category": "Water & Sanitation",
+    "image_name": "anaerobic_chambers.png",
+    "description": "Sealed compartments where bacteria break down waste without oxygen, reducing volume and odor."
+  },
+  {
+    "material_name": "Planted wetland bed",
+    "category": "Green Infrastructure",
+    "image_name": "planted_wetland_bed.png",
+    "description": "Vegetated area filtering wastewater naturally through plant roots and soil microbes."
+  },
+  {
+    "material_name": "Biochar filter (optional)",
+    "category": "Water & Sanitation",
+    "image_name": "biochar_filter_optional.png",
+    "description": "Charcoal-based material added to filter and absorb pollutants from wastewater."
+  },
+  {
+    "material_name": "Prefabricated toilet unit",
+    "category": "Water & Sanitation",
+    "image_name": "prefabricated_toilet_unit.png",
+    "description": "Ready-made sanitation structure installed quickly without on-site construction."
+  },
+  {
+    "material_name": "Sealed waste cartridges",
+    "category": "Water & Sanitation",
+    "image_name": "sealed_waste_cartridges.png",
+    "description": "Contained units storing toilet waste safely until collection and disposal."
+  },
+  {
+    "material_name": "Daily collection service",
+    "category": "Public Infrastructure",
+    "image_name": "daily_collection_service.png",
+    "description": "Regular scheduled service removing waste or sanitation cartridges from the site."
+  },
+  {
+    "material_name": "Handwashing water supply",
+    "category": "Water & Sanitation",
+    "image_name": "handwashing_water_supply.png",
+    "description": "Dedicated water point enabling hygiene practices near sanitation facilities."
+  },
+  {
+    "material_name": "Clear PET bottles",
+    "category": "Plastic & Recycling",
+    "image_name": "clear_pet_bottles.png",
+    "description": "Transparent plastic bottles reused for solar lighting, planters, or building material."
+  },
+  {
+    "material_name": "Clean source water",
+    "category": "Water & Sanitation",
+    "image_name": "clean_source_water.png",
+    "description": "Water originating from a verified, uncontaminated supply point for safe use."
+  },
+  {
+    "material_name": "A sunny, secure surface",
+    "category": "Public Infrastructure",
+    "image_name": "a_sunny_secure_surface.png",
+    "description": "Open, well-lit area suitable for drying, gathering, or production activities."
+  },
+  {
+    "material_name": "A simple time check",
+    "category": "Public Infrastructure",
+    "image_name": "a_simple_time_check.png",
+    "description": "Basic method, like a clock or sun position, used to track duration."
+  },
+  {
+    "material_name": "Smart pressure sewer pipe",
+    "category": "Water & Sanitation",
+    "image_name": "smart_pressure_sewer_pipe.png",
+    "description": "Pressurized pipe system transporting sewage efficiently without relying on gravity alone."
+  },
+  {
+    "material_name": "Covered community septic tank",
+    "category": "Water & Sanitation",
+    "image_name": "covered_community_septic_tank.png",
+    "description": "Shared underground tank treating wastewater for multiple households, sealed for safety."
+  },
+  {
+    "material_name": "Constructed wetland / biofiltration garden",
+    "category": "Green Infrastructure",
+    "image_name": "constructed_wetland_biofiltration_garden.png",
+    "description": "Engineered planted area that naturally filters and treats greywater or runoff."
+  },
+  {
+    "material_name": "Household separation fittings",
+    "category": "Water & Sanitation",
+    "image_name": "household_separation_fittings.png",
+    "description": "Plumbing fixtures separating greywater and blackwater at the household level."
+  },
+  {
+    "material_name": "Community design workshop materials",
+    "category": "Public Infrastructure",
+    "image_name": "community_design_workshop_materials2.png",
+    "description": "Supplies like paper, markers, and models used in participatory design sessions."
+  },
+  {
+    "material_name": "Portable toilet unit",
+    "category": "Water & Sanitation",
+    "image_name": "portable_toilet_unit.png",
+    "description": "Movable sanitation facility relocated as needed across different site conditions."
+  },
+  {
+    "material_name": "Solar concentrator unit",
+    "category": "Public Infrastructure",
+    "image_name": "solar_concentrator_unit.png",
+    "description": "Device focusing sunlight to generate heat or energy for cooking or heating."
+  },
+  {
+    "material_name": "Charcoal dust & plant waste feedstock",
+    "category": "Plastic & Recycling",
+    "image_name": "charcoal_dust_plant_waste_feedstock.png",
+    "description": "Combined organic waste materials compressed into solid fuel briquettes."
+  },
+  {
+    "material_name": "Briquette press",
+    "category": "Public Infrastructure",
+    "image_name": "briquette_press.png",
+    "description": "Mechanical tool compacting waste feedstock into solid fuel briquettes for cooking."
+  },
+  {
+    "material_name": "Collection vehicle or cart",
+    "category": "Public Infrastructure",
+    "image_name": "collection_vehicle_or_cart.png",
+    "description": "Wheeled transport used to move waste or materials around the settlement."
+  },
+  {
+    "material_name": "Compacted gravel base",
+    "category": "Construction & Salvage",
+    "image_name": "compacted_gravel_base.png",
+    "description": "Layer of packed stones providing a stable foundation beneath paving surfaces."
+  },
+  {
+    "material_name": "Paving surface",
+    "category": "Construction & Salvage",
+    "image_name": "paving_surface.png",
+    "description": "Finished walkable or drivable layer installed over a prepared sub-base."
+  },
+  {
+    "material_name": "Side drainage channel",
+    "category": "Water & Sanitation",
+    "image_name": "side_drainage_channel.png",
+    "description": "Open or covered channel running alongside paths to direct rainwater away."
+  },
+  {
+    "material_name": "Solar streetlight pole",
+    "category": "Public Infrastructure",
+    "image_name": "solar_streetlight_pole2.png",
+    "description": "Pole-mounted fixture holding solar light and battery, providing illumination along streets at night."
+  },
+  {
+    "material_name": "Community design workshop materials",
+    "category": "Public Infrastructure",
+    "image_name": "community_design_workshop_materials.png",
+    "description": "Supplies like paper, markers, and models used in participatory design sessions."
+  },
+  {
+    "material_name": "Gabions (wire-mesh walls)",
+    "category": "Construction & Salvage",
+    "image_name": "gabions_wire_mesh_walls.png",
+    "description": "Wire cages filled with stones, used to stabilize slopes or riverbanks."
+  },
+  {
+    "material_name": "Heavy clearing equipment access",
+    "category": "Construction & Salvage",
+    "image_name": "heavy_clearing_equipment_access.png",
+    "description": "Route or space allowing machinery to clear debris or vegetation safely."
+  },
+  {
+    "material_name": "Trees, grass and flowers",
+    "category": "Green Infrastructure",
+    "image_name": "trees_grass_and_flowers.png",
+    "description": "Vegetation planted to provide shade, cooling, and visual greenery in public space."
+  },
+  {
+    "material_name": "Tree nursery setup",
+    "category": "Green Infrastructure",
+    "image_name": "tree_nursery_setup.png",
+    "description": "Designated area for growing seedlings before transplanting them into the community."
+  },
+  {
+    "material_name": "Protective equipment for waste handling",
+    "category": "Public Infrastructure",
+    "image_name": "protective_equipment_for_waste_handling.png",
+    "description": "Gear such as gloves and masks protecting workers from waste exposure."
+  },
+  {
+    "material_name": "Interlocking pavers",
+    "category": "Construction & Salvage",
+    "image_name": "interlocking_pavers.png",
+    "description": "Shaped paving blocks that fit together without mortar, allowing easy installation."
+  },
+  {
+    "material_name": "Hardcore sub-base",
+    "category": "Construction & Salvage",
+    "image_name": "hardcore_sub_base.png",
+    "description": "Compacted layer of broken stone forming the foundation beneath paved surfaces."
+  },
+  {
+    "material_name": "Sand / gravel bedding",
+    "category": "Construction & Salvage",
+    "image_name": "sand_gravel_bedding.png",
+    "description": "Loose material layer leveling and supporting pavers above the sub-base."
+  },
+  {
+    "material_name": "Kerb / edge restraint",
+    "category": "Construction & Salvage",
+    "image_name": "kerb_edge_restraint.png",
+    "description": "Border element holding paving units in place and preventing lateral shifting."
+  },
+  {
+    "material_name": "Gabion baskets",
+    "category": "Construction & Salvage",
+    "image_name": "gabion_baskets.png",
+    "description": "Wire mesh containers filled with stones used for retaining walls or erosion control."
+  },
+  {
+    "material_name": "Excavated basin",
+    "category": "Green Infrastructure",
+    "image_name": "excavated_basin.png",
+    "description": "Dug depression in the ground designed to collect and temporarily hold stormwater."
+  },
+  {
+    "material_name": "Bioretention planting",
+    "category": "Green Infrastructure",
+    "image_name": "bioretention_planting.png",
+    "description": "Vegetation placed within drainage basins to absorb and filter stormwater naturally."
+  },
+  {
+    "material_name": "Gabion edges",
+    "category": "Construction & Salvage",
+    "image_name": "gabion_edges.png",
+    "description": "Stone-filled wire borders reinforcing the perimeter of basins or channels against erosion."
+  },
+  {
+    "material_name": "Underground storage cells",
+    "category": "Water & Sanitation",
+    "image_name": "underground_storage_cells.png",
+    "description": "Buried modular units temporarily storing excess stormwater below ground level."
+  },
+  {
+    "material_name": "Overflow outlet",
+    "category": "Water & Sanitation",
+    "image_name": "overflow_outlet.png",
+    "description": "Pipe or channel releasing excess water once storage capacity is exceeded."
+  },
+  {
+    "material_name": "Earthen Terraces",
+    "category": "Green Infrastructure",
+    "image_name": "earthen_terraces.png",
+    "description": "Stepped ground levels built to slow water runoff and reduce soil erosion."
+  },
+  {
+    "material_name": "Vetiver / Napier Grass",
+    "category": "Green Infrastructure",
+    "image_name": "vetiver_napier_grass.png",
+    "description": "Deep-rooted grass species planted to stabilize soil and slow water flow."
+  },
+  {
+    "material_name": "Stone / Timber Toe-boards",
+    "category": "Construction & Salvage",
+    "image_name": "stone_timber_toe_boards.png",
+    "description": "Low barriers placed at terrace edges to hold soil in place."
+  },
+  {
+    "material_name": "Shrubs & Tree Seedlings",
+    "category": "Green Infrastructure",
+    "image_name": "shrubs_tree_seedlings.png",
+    "description": "Young plants established to anchor soil and provide long-term vegetation cover."
+  },
+  {
+    "material_name": "Hand Tools",
+    "category": "Construction & Salvage",
+    "image_name": "hand_tools.png",
+    "description": "Basic equipment like shovels and hoes used for manual construction and planting work."
+  },
+  {
+    "material_name": "Canopy / Shade Structure",
+    "category": "Textile & Shade Materials",
+    "image_name": "canopy_shade_structure.png",
+    "description": "Overhead covering providing relief from sun and rain in public gathering areas."
+  },
+  {
+    "material_name": "Solar Light",
+    "category": "Public Infrastructure",
+    "image_name": "solar_light.png",
+    "description": "Standalone light powered by a small solar panel, used for localized illumination."
+  },
+  {
+    "material_name": "Fixed Seating",
+    "category": "Public Infrastructure",
+    "image_name": "fixed_seating.png",
+    "description": "Permanently installed benches or seats encouraging gathering and use of public space."
+  },
+  {
+    "material_name": "Notice Board / Mural Surface",
+    "category": "Public Infrastructure",
+    "image_name": "notice_board_mural_surface.png",
+    "description": "Flat surface for posting information or painting community artwork and murals."
+  },
+  {
+    "material_name": "Vendor Counter / Kiosk Frame",
+    "category": "Construction & Salvage",
+    "image_name": "vendor_counter_kiosk_frame.png",
+    "description": "Structural frame supporting a small vendor stall or kiosk for trading."
+  },
+  {
+    "material_name": "Road Marking Paint",
+    "category": "Public Infrastructure",
+    "image_name": "road_marking_paint.png",
+    "description": "Durable paint used to mark lanes, boundaries, or pedestrian zones on surfaces."
+  },
+  {
+    "material_name": "Masking Tape & Stencils",
+    "category": "Public Infrastructure",
+    "image_name": "masking_tape_stencils.png",
+    "description": "Tools used to create clean, repeatable patterns when painting markings or murals."
+  },
+  {
+    "material_name": "Paint Rollers & Brushes",
+    "category": "Public Infrastructure",
+    "image_name": "paint_rollers_brushes.png",
+    "description": "Hand tools used to apply paint evenly across surfaces during marking or murals."
+  },
+  {
+    "material_name": "Measuring Tape & Chalk Line",
+    "category": "Public Infrastructure",
+    "image_name": "measuring_tape_chalk_line.png",
+    "description": "Tools used to measure distances and mark straight guide lines before painting."
+  },
+  {
+    "material_name": "Market Layout Plan",
+    "category": "Public Infrastructure",
+    "image_name": "market_layout_plan.png",
+    "description": "Diagram organizing vendor stalls and walkways within a market area efficiently."
+  },
+  {
+    "material_name": "Stall Boundary Markers",
+    "category": "Public Infrastructure",
+    "image_name": "stall_boundary_markers.png",
+    "description": "Physical markers defining individual vendor stall spaces within a shared market."
+  },
+  {
+    "material_name": "Solar Lights at Key Points",
+    "category": "Public Infrastructure",
+    "image_name": "solar_lights_at_key_points.png",
+    "description": "Strategically placed solar lights illuminating high-risk or high-traffic locations at night."
+  },
+  {
+    "material_name": "Overhead Clearance Work",
+    "category": "Public Infrastructure",
+    "image_name": "overhead_clearance_work.png",
+    "description": "Trimming or removing obstructions above pathways to improve visibility and safety."
+  },
+  {
+    "material_name": "Vendor Notice Board",
+    "category": "Public Infrastructure",
+    "image_name": "vendor_notice_board.png",
+    "description": "Shared board where vendors post announcements, schedules, or market information."
+  }
+]

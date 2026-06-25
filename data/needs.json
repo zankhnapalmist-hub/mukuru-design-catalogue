@@ -1,0 +1,26 @@
+[
+  {
+    "need_name": "Improve Perceived Safety",
+    "icon": "safety.png"
+  },
+  {
+    "need_name": "Flood Adaptation",
+    "icon": "flood.png"
+  },
+  {
+    "need_name": "Water Management",
+    "icon": "water.png"
+  },
+  {
+    "need_name": "Waste Management",
+    "icon": "waste.png"
+  },
+  {
+    "need_name": "Heat Mitigation",
+    "icon": "heat.png"
+  },
+  {
+    "need_name": "Improving Infrastructure",
+    "icon": "infrastructure.png"
+  }
+]
